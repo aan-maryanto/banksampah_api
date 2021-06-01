@@ -1,6 +1,7 @@
 const initModels = require('../models/init-models');
 const { Op } = require('sequelize');
 const initdb = require('../config/init-db');
+const initmail = require('../config/sendemail');
 const models = initModels(initdb);
 const fs = require('fs');
 const path = require('path');
@@ -84,6 +85,38 @@ const AuthController = {
     forgotPassword(req, res){
         // var email = req.body.email;
         var email = req.params.email
+        models.tblusers.findOne({
+            where: {
+                email: {
+                    [Op.eq]:email
+                }
+            }
+        }).then((result)=>{
+            if(!result) {
+                return res.status(400).json({"message":"user not found"})
+            }
+            var iduser = btoa(result.id)
+            var link = "http://localhost:3000/updatepasswordbylink/"+iduser;
+            const filepath = (__dirname, 'public/pages/forgotpassword.html')
+            const source = fs.readFileSync(filepath, 'utf-8').toString();
+            initmail.sendEmailForgot({'email': result.email, 'link':link, 'source': source},(result)=>{
+                if(result) {
+                    res.status(200).json({"message":"please check your email"})
+                }else{
+                    res.status(400).json({"message":"fail sent email"})
+                }
+            }, )
+        }).catch((error) =>{
+            console.log("Error"+error)
+            return res.status(400).json({"message":error})
+        })
+    }
+,
+    updatePasswordByLink(req, res){}
+,
+    forgotUsername(req, res){
+
+        var email = req.params.email
 
         const filepath = path.join(__dirname, '../public/pages/forgotpassword.html');
         const source = fs.readFileSync(filepath, 'utf-8').toString();
@@ -112,40 +145,19 @@ const AuthController = {
             html: htmlToSend
             // html: { path: 'public/pages/forgotpassword.html' }
         }
+        
 
-            mail.sendMail(mailOptions, function(error, info){
-                if(error) {
-                    console.log(error)
-                }else{
-                    return res.status(200).json({"message":"Please check your email to confirm"})
-                }
-            })
+            // initmail.sendMail(mailOptions, function(error, info){
+            //     if(error) {
+            //         console.log(error)
+            //     }else{
+            //         return res.status(200).json({"message":"Please check your email to confirm"})
+            //     }
+            // })
 
-        // models.tblusers.findOne({
-        //     where: {
-        //         [Op.eq]:[
-        //             {email:email}
-        //         ]
-        //     }
-        // }).then((result)=>{
-        //     if(!result) {
-        //         return res.status(400).json({"message":"user not found"})
-        //     }
-        //     mail.sendMail(mailOptions, function(error, info){
-        //         if(error) {
-        //             console.log(error)
-        //         }else{
-        //             return res.status(200).json({"message":"Please check your email to confirm"})
-        //         }
-        //     })
-        // }).catch((error) =>{
-        //     console.log(error)
-        // })
     }
 ,
-    forgotUsername(req, res){
-
-    }
+    updateUsernameByLink(req,res){}
 
 }
 

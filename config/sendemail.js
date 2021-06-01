@@ -1,11 +1,46 @@
-// const fs = require('fs');
+const fs = require('fs');
 // const path = require('path');
 const hbs = require('handlebars');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
+const { send } = require('process');
+const { response } = require('express');
 dotenv.config()
 
-sendEmail(html,(err, html)=>{
-    const filepath = path.join(html)
-});
-    
+const mail = {
+    sendEmailForgot(data, next) {
+        const template = hbs.compile(data.source);
+        const dataHtml = {
+            link : data.link
+        }
+        const htmlToSend = template(dataHtml);
+        var mail = nodemailer.createTransport({
+            host: process.env.GMAIL_SERVICE_HOST,
+            port: process.env.GMAIL_SERVICE_PORT,
+            secure: process.env.GMAIL_SERVICE_SECURE,
+            requireTLS: process.env.GMAIL_SERVICE_TLS,
+            service: process.env.GMAIL_SERVICE_NAME,
+            auth:{
+                user: process.env.GMAIL_USER_NAME,
+                pass: process.env.GMAIL_USER_PASSWORD
+            }
+        });
+        var mailOptions = {
+            from: process.env.GMAIL_USER_NAME,
+            to: data.email,
+            subject: 'Forgot Password',
+            html: htmlToSend
+        }
+        mail.sendMail(mailOptions, function(error, info){
+            if(error) {
+                console.log("Error :"+error)
+                next(false)
+            }else{
+                console.log("Info"+ JSON.stringify(info))
+                next(true)
+            }
+        })
+    }
+}
+
+module.exports = mail
