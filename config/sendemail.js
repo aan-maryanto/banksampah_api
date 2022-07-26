@@ -11,7 +11,7 @@ const mail = {
     sendEmailForgot(data, next) {
         const template = hbs.compile(data.source);
         const dataHtml = {
-            link : data.link
+            context : data.context
         }
         const htmlToSend = template(dataHtml);
         var mail = nodemailer.createTransport({
@@ -28,7 +28,7 @@ const mail = {
         var mailOptions = {
             from: process.env.GMAIL_USER_NAME,
             to: data.email,
-            subject: 'Forgot Password',
+            subject: data.type == "password" ? "Forgot Password" : "Forgot Username",
             html: htmlToSend
         }
         mail.sendMail(mailOptions, function(error, info){

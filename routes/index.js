@@ -3,6 +3,9 @@ var router = express.Router();
 var AuthController = require('../controllers/AuthController');
 
 /* GET home page. */
+router.get('', (req, res) =>{
+    res.send("Hello World")
+})
 router.post('/login', AuthController.login);
 router.post('/forgotpassword/:email', AuthController.forgotPassword);
 router.post('/forgotusername/:email', AuthController.forgotUsername);

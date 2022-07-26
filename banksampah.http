@@ -1,0 +1,21 @@
+# GET http://localhost:3000/
+
+# POST http://localhost:3000/users/save HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "username": "finkaamel",
+#     "email": "admin_finkaamel@banksampah.com",
+#     "password": "P@ssw0rd",
+#     "lastlogin":null,
+#     "status":"A",
+#     "issuperadmin":false
+# }
+
+POST http://localhost:3000/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "aanmaryanto",
+    "password": "P@ssw0rd"
+}

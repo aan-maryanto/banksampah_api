@@ -26,11 +26,6 @@ const AuthController = {
             }
         })
         .then((result) => {
-            var token = jwt.sign({
-                data: result
-            }, process.env.SALT, {expiresIn: '1h'})
-            // var hashpass = bcrypt.hashSync("P@ssw0rd", 12)
-            // console.log("Hashpassword"+hashpass);
             if(!result) {
                 return res.status(400).json({"message":"user not found"});
             }
@@ -39,7 +34,14 @@ const AuthController = {
                 if(!resp) {
                     return res.status(400).json({"message":"wrong password"})
                 }else{
-                    return res.status(200).json({"token":token});
+                    const {password, lastlogin, issuperadmin, ...filterData} = result.dataValues
+                    var token = jwt.sign({
+                        data: filterData
+                    }, process.env.SALT, {expiresIn: '1h', algorithm: 'HS256'})
+                    var refreshToken = jwt.sign({
+                        data: filterData
+                    }, process.env.SALT, { expiresIn: '10h', algorithm: 'HS256'})        
+                    return res.status(200).json({"token":token, "refresh_token": refreshToken});
                 }
             })  
         })
@@ -65,7 +67,7 @@ const AuthController = {
             default: {
                 username: username,
                 email: email,
-                password: bcrypt.hashSync(password),
+                password: bcrypt.hashSync(password, 10),
                 createdAt: createdAt,
                 status: status,
                 issuperadmin: issuperadmin
@@ -75,7 +77,7 @@ const AuthController = {
             if(!result) {
                 return res.status(400).json({"message":"user already exist"})
             }
-            return res.status(200).json({"message":"success to register"})
+            return res.status(201).json({"message":"success to register"})
         }).catch((error) => {
             console.log(error)
         })
@@ -99,62 +101,78 @@ const AuthController = {
             var link = "http://localhost:3000/updatepasswordbylink/"+iduser;
             const filepath = (__dirname, 'public/pages/forgotpassword.html')
             const source = fs.readFileSync(filepath, 'utf-8').toString();
-            initmail.sendEmailForgot({'email': result.email, 'link':link, 'source': source},(result)=>{
+            initmail.sendEmailForgot({
+                'email': result.email, 
+                'context':link, 
+                'source': source, 
+                'type':"password"
+            },(result)=>{
                 if(result) {
                     res.status(200).json({"message":"please check your email"})
                 }else{
-                    res.status(400).json({"message":"fail sent email"})
+                    res.status(400).json({"message":"email not found"})
                 }
-            }, )
+            })
         }).catch((error) =>{
-            console.log("Error"+error)
-            return res.status(400).json({"message":error})
+            console.error("Error"+error)
+            return res.status(500).json({"message":error})
         })
     }
 ,
-    updatePasswordByLink(req, res){}
+    updatePasswordByLink(req, res){
+        var iduser = req.params.iduser
+        var newpassword = req.body.newpassword
+
+        models.tblusers.update({password:newpassword},{
+            where: {
+                id: {
+                    [Op.eq]:iduser
+                }
+            }
+        }).then((result) => {
+            if(!result) {
+                res.status(400).json({"message":"failed to update"})
+            }
+            res.status(200).json({"message":"success update password"})
+        }).catch((err) => {
+            console.error(err)
+            res.status(500).json({"message":err})
+        })
+    }
 ,
     forgotUsername(req, res){
-
         var email = req.params.email
 
-        const filepath = path.join(__dirname, '../public/pages/forgotpassword.html');
-        const source = fs.readFileSync(filepath, 'utf-8').toString();
-        const template = hbs.compile(source);
-        const dataHtml = {
-            newPassword : 'P@ssw0rd'
-        }
-        const htmlToSend = template(dataHtml);
-
-        var mail = nodemailer.createTransport({
-            host: process.env.GMAIL_SERVICE_HOST,
-            port: process.env.GMAIL_SERVICE_PORT,
-            secure: process.env.GMAIL_SERVICE_SECURE,
-            requireTLS: process.env.GMAIL_SERVICE_TLS,
-            service: process.env.GMAIL_SERVICE_NAME,
-            auth:{
-                user: process.env.GMAIL_USER_NAME,
-                pass: process.env.GMAIL_USER_PASSWORD
+        models.tblusers.findOne({
+            where: {
+                email: {
+                    [Op.eq]:email
+                }
             }
-        });
-
-        var mailOptions = {
-            from: process.env.GMAIL_USER_NAME,
-            to: email,
-            subject: 'Forgot Password',
-            html: htmlToSend
-            // html: { path: 'public/pages/forgotpassword.html' }
-        }
-        
-
-            // initmail.sendMail(mailOptions, function(error, info){
-            //     if(error) {
-            //         console.log(error)
-            //     }else{
-            //         return res.status(200).json({"message":"Please check your email to confirm"})
-            //     }
-            // })
-
+        }).then((result)=>{
+            if (!result) {
+                res.status(200).json({"message":"email not found"})
+            }
+            var iduser = btoa(result.id)
+            var username = result.username
+            const filepath = path.join(__dirname, 'public/pages/forgotpassword.html');
+            const source = fs.readFileSync(filepath, 'utf-8').toString();
+            initmail.sendEmailForgot({
+                'email':result.email, 
+                'context':username, 
+                'source':source,
+                'type': "username"
+            }, (result) => {
+                if(result) {
+                    res.status(200).json({"message":"please check your email"})
+                }else{
+                    res.status(400).json({"message":"email not found"})
+                }
+            })
+        }).catch((err) => {
+            console.error(err)
+            return res.status(500).json({"message":err})
+        })
     }
 ,
     updateUsernameByLink(req,res){}
