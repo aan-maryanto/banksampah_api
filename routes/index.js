@@ -10,6 +10,6 @@ router.post('/login', AuthController.login);
 router.post('/forgotpassword/:email', AuthController.forgotPassword);
 router.post('/forgotusername/:email', AuthController.forgotUsername);
 router.post('/updatepasswordbylink/:iduser', AuthController.updatePasswordByLink);
-router.post('/updateusernamebylink/:iduser', AuthController.updateUsernameByLink);
+// router.post('/updateusernamebylink/:iduser', AuthController.updateUsernameByLink);
 
 module.exports = router;

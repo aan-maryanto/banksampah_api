@@ -174,9 +174,6 @@ const AuthController = {
             return res.status(500).json({"message":err})
         })
     }
-,
-    updateUsernameByLink(req,res){}
-
 }
 
 module.exports = AuthController
