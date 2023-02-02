@@ -39,6 +39,32 @@ module.exports = {
         type: Sequelize.ENUM('Y','N'),
         allowNull: true,
         defaultValue: "N"
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
+      createdBy: {
+        type: Sequelize.BIGINT,
+        allowNull: true,
+        references: {
+          model: 'tblsatuan',
+          key: 'id'
+        }
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
+      updatedBy: {
+        type: Sequelize.BIGINT,
+        allowNull: true,
+        references: {
+          model: 'tblsatuan',
+          key: 'id'
+        }
       }
     },{
       queryInterface,

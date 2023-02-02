@@ -8,40 +8,58 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('tblsatuan', {
+    await queryInterface.createTable('tblgoods_raw',{
       id: {
         autoIncrement: true,
         type: Sequelize.BIGINT,
         allowNull: false,
         primaryKey: true
       },
-      kdsatuan: {
+      name: {
+        type: Sequelize.STRING(100),
+        allowNull: true
+      },
+      satuan: {
+        type: Sequelize.BIGINT,
+        allowNull: true,
+        references: {
+          model: 'tblsatuan',
+          key: 'id'
+        }
+      },
+      price: {
         type: Sequelize.STRING(10),
         allowNull: true
       },
-      uraian: {
-        type: Sequelize.STRING(100),
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: true
       },
       createdBy: {
         type: Sequelize.BIGINT,
         allowNull: true,
         references: {
-          model: 'tblsatuan',
+          model: 'tblusers',
           key: 'id'
         }
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
       },
       updatedBy: {
         type: Sequelize.BIGINT,
         allowNull: true,
         references: {
-          model: 'tblsatuan',
+          model: 'tblusers',
           key: 'id'
         }
       }
-    },{
+    }, {
       queryInterface,
-      tableName: 'tblsatuan',
+      tableName: 'tblgoods_raw',
       timestamps: true,
       indexes: [
         {
@@ -53,14 +71,21 @@ module.exports = {
           ]
         },
         {
-          name: "fk_tblsatuan_create",
+          name: "fk_tblgoodsraw_satuan",
+          using: "BTREE",
+          fields: [
+            { name: "satuan" },
+          ]
+        },
+        {
+          name: "fk_tblgoodsraw_create",
           using: "BTREE",
           fields: [
             { name: "createdBy" },
           ]
         },
         {
-          name: "fk_tblsatuan_update",
+          name: "fk_tblgoodsraw_update",
           using: "BTREE",
           fields: [
             { name: "updatedBy" },
@@ -77,6 +102,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('tblsatuan')
+    await queryInterface.dropTable('tblgoods_raw')
   }
 };

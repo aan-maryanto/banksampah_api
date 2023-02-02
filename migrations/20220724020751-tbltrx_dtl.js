@@ -9,6 +9,12 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     await queryInterface.createTable('tbltrx_dtl', {
+      id: {
+        autoIncrement: true,
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        primaryKey: true
+      },
       trxhdr_id: {
         type: Sequelize.BIGINT,
         allowNull: true,
@@ -19,10 +25,18 @@ module.exports = {
       },
       goods_rawid: {
         type: Sequelize.BIGINT,
-        allowNull: true
+        allowNull: true,
+        references: {
+          model: 'tblgoods_raw',
+          key: 'id'
+        }
       },
       weight: {
         type: Sequelize.INTEGER,
+        allowNull: true
+      },
+      subtotal_amount: {
+        type: Sequelize.FLOAT(18, 2),
         allowNull: true
       }
     },{

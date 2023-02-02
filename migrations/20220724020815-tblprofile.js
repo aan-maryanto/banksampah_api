@@ -47,6 +47,16 @@ module.exports = {
       avatar: {
         type: Sequelize.BLOB,
         allowNull: true
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
       }
     },{
       queryInterface,

@@ -16,8 +16,7 @@ dotenv.config()
 const AuthController = {
     login(req, res) {
         console.log("Body"+ JSON.stringify(req.body))
-        var username = req.body.username;
-        var password = req.body.password;
+        const {username, password} = req.body
         models.tblusers.findOne({
             where: {
                 username:{
@@ -77,6 +76,9 @@ const AuthController = {
             if(!result) {
                 return res.status(400).json({"message":"user already exist"})
             }
+            models.tbluser_privilege.create({
+                
+            })
             return res.status(201).json({"message":"success to register"})
         }).catch((error) => {
             console.log(error)
@@ -172,6 +174,22 @@ const AuthController = {
         }).catch((err) => {
             console.error(err)
             return res.status(500).json({"message":err})
+        })
+    },
+    sendEmail(req, res) {
+        const filepath = path.join(__dirname, '../public/pages/forgotpassword.html');
+        const source = fs.readFileSync(filepath, 'utf-8').toString();
+        initmail.sendEmailForgot({
+            'email':'maryanto.aan@gmail.com',
+            'context':'maryanto.aan',
+            'source':source,
+            'type': "username"
+        }, (result) => {
+            if(result) {
+                res.status(200).json({"message":"please check your email"})
+            }else{
+                res.status(400).json({"message":"email not found"})
+            }
         })
     }
 }

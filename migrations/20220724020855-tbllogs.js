@@ -19,12 +19,22 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
       createdBy: {
         type: Sequelize.STRING(20),
         allowNull: true
       },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
       updatedBy: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(20), // default system
         allowNull: true
       }
     }, {

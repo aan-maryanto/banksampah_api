@@ -7,7 +7,7 @@ const initdb = new Sequelize(process.env.DATABASE, process.env.USERNAME, process
     dialect: 'mysql',
     operatorAliases: false,
 }, {
-    timestamps: false
+    timestamps: true
 })
 
 module.exports = initdb

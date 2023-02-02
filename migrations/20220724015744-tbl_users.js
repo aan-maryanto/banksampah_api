@@ -38,7 +38,11 @@ module.exports = {
       allowNull: true,
       defaultValue: "A"
     },
-    issuperadmin: {
+    is_verified: {
+      type: Sequelize.BOOLEAN,
+      allowNull: true,
+    },
+    is_superadmin: {
       type: Sequelize.TINYINT,
       allowNull: true
     }
@@ -47,6 +51,7 @@ module.exports = {
       tableName: 'tblusers',
       hasTrigger: true,
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "PRIMARY",

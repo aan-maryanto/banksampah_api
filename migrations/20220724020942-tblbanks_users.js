@@ -38,11 +38,16 @@ module.exports = {
         allowNull: true
       },
       status: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.STRING(1), // A=Active, D=Delete, I=Inactive
         allowNull: true
       },
       lastlogin: {
         type: Sequelize.DATE,
+        allowNull: true
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: true
       },
       createdBy: {
@@ -52,6 +57,11 @@ module.exports = {
           model: 'tblusers',
           key: 'id'
         }
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
       },
       updatedBy: {
         type: Sequelize.BIGINT,

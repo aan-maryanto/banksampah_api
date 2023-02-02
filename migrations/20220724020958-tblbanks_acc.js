@@ -32,6 +32,32 @@ module.exports = {
           model: 'tblbanks_role',
           key: 'id'
         }
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
+      createdBy: {
+        type: Sequelize.BIGINT,
+        allowNull: true,
+        references: {
+          model: 'tblusers',
+          key: 'id'
+        }
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
+      updatedBy: {
+        type: Sequelize.BIGINT,
+        allowNull: true,
+        references: {
+          model: 'tblusers',
+          key: 'id'
+        }
       }
     }, {
       queryInterface,

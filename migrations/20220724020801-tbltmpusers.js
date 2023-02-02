@@ -24,7 +24,17 @@ module.exports = {
         }
       },
       ip: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.STRING(15),
+        allowNull: true
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: true
       }
     },{

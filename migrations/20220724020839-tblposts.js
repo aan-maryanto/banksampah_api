@@ -28,8 +28,18 @@ module.exports = {
         allowNull: true,
         comment: "001 = DRAFT, 002 = IN VALIDATION , 003 = DITOLAK, 004 = PUBLISH, 005 = DELETED"
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
       createdBy: {
         type: Sequelize.STRING(100),
+        allowNull: true
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: true
       },
       updatedBy: {

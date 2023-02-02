@@ -1,17 +1,19 @@
 # GET http://localhost:3000/
 
-# POST http://localhost:3000/users/save HTTP/1.1
-# Content-Type: application/json
+### Register 
+POST http://localhost:3000/users/save HTTP/1.1
+Content-Type: application/json
 
-# {
-#     "username": "finkaamel",
-#     "email": "admin_finkaamel@banksampah.com",
-#     "password": "P@ssw0rd",
-#     "lastlogin":null,
-#     "status":"A",
-#     "issuperadmin":false
-# }
+{
+    "username": "superadmin",
+    "email": "superadmin@banksampah.com",
+    "password": "P@ssw0rd",
+    "lastlogin":null,
+    "status":"A",
+    "issuperadmin":true
+}
 
+### LOGIN
 POST http://localhost:3000/login HTTP/1.1
 Content-Type: application/json
 
@@ -19,3 +21,7 @@ Content-Type: application/json
     "username": "aanmaryanto",
     "password": "P@ssw0rd"
 }
+
+### ALL USER
+GET http://localhost:3000/banksampah_api/user
+Content-Type: application/json

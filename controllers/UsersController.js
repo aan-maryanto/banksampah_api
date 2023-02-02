@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt')
 
 const UserController = {
     save(req, res) {
+        const {username, email, password, lastlogin, status, issuperadmin} = req.body
         models.tblusers.findOrCreate({
             where: {
                 [Op.or]:[
@@ -97,6 +98,51 @@ const UserController = {
                     [Op.eq]:id
                 }
             }
+        })
+    }
+,
+    addProfile(req, res) {
+        var param = req.body
+        models.tblprofile.findOrCreate({
+            where: {
+                [Op.eq] : {
+                    userid: param['userid']
+                }
+            },
+            default: {
+                userid: param['userid'],
+                fullname: param['fullname'],
+                pob: param['pob'],
+                dob: param['dob'],
+                address: param['address'],
+                nik: param['nik'],
+                avatar: param['avatar']
+            }
+        }).then((result) => {
+            console.log(result)
+            if(!result) {
+                return res.status(400).json({"message":"user already exist"})
+            }
+            return res.status(201).json({"message":"success to add profile user : "+param['fullname']})
+        }).catch((err)=>{
+            console.error(err)
+        })
+    }
+,
+    getProfile(req, res) {
+        var param = req.body
+        models.tblprofile.findOne({
+            where: {
+                [Op.eq]: {
+                    userid : param['userid']
+                }
+            }
+        }).then((result)=>{
+            console.log(result)
+            if(result) {
+                return res.status(400).json({"message" : "user sudah punya profile"})
+            }
+            return res.status(200).json({"message":"silakan lengkapi profile"})
         })
     }
 

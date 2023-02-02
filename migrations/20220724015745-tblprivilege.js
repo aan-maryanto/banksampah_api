@@ -15,10 +15,20 @@ module.exports = {
         allowNull: false,
         primaryKey: true
       },
-      NAME: {
+      name: {
         type: Sequelize.STRING(50),
         allowNull: true,
-        unique: "NAME"
+        unique: "name"
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
       }
     }, {
       queryInterface,

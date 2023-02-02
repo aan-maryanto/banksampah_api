@@ -40,6 +40,11 @@ module.exports = {
         type: Sequelize.BLOB,
         allowNull: true
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
+      },
       createdBy: {
         type: Sequelize.BIGINT,
         allowNull: true,
@@ -47,6 +52,11 @@ module.exports = {
           model: 'tblusers',
           key: 'id'
         }
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
       },
       updatedBy: {
         type: Sequelize.BIGINT,

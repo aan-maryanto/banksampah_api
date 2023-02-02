@@ -32,7 +32,12 @@ module.exports = {
         allowNull: true
       },
       status: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.TINYINT, //available or not
+        allowNull: true
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: true
       },
       createdBy: {
@@ -42,6 +47,11 @@ module.exports = {
           model: 'tblusers',
           key: 'id'
         }
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true
       },
       updatedBy: {
         type: Sequelize.BIGINT,
