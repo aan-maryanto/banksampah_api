@@ -70,6 +70,7 @@ module.exports = {
       queryInterface,
       tableName: 'tbltrx_hdr',
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "PRIMARY",

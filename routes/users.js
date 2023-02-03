@@ -8,5 +8,4 @@ router.get('/exceptsu', checkToken, UsersController.allexceptsu);
 router.get('/byprivilege/:id', checkToken, UsersController.allbyprivilege);
 router.get('/byid/:id', checkToken, UsersController.byid);
 router.post('/save', UsersController.save);
-// router.post('/addProfile', checkToken, UsersController.profile);
 module.exports = router;

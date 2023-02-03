@@ -45,6 +45,16 @@ module.exports = {
     is_superadmin: {
       type: Sequelize.TINYINT,
       allowNull: true
+    },
+    createdAt: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.fn('NOW'),
+      allowNull: true
+    },
+    updatedAt: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.fn('NOW'),
+      allowNull: true
     }
     },{
       queryInterface,

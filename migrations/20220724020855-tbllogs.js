@@ -41,6 +41,7 @@ module.exports = {
       queryInterface,
       tableName: 'tbllogs',
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "PRIMARY",

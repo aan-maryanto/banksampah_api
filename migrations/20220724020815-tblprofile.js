@@ -62,6 +62,7 @@ module.exports = {
       queryInterface,
       tableName: 'tblprofile',
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "PRIMARY",

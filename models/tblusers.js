@@ -30,8 +30,20 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       defaultValue: "A"
     },
-    issuperadmin: {
+    is_verified : {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+    is_superadmin: {
       type: DataTypes.TINYINT,
+      allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {

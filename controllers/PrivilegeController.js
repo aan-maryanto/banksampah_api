@@ -7,49 +7,54 @@ const PrivilegeController = {
     all(req, res) {
         models.tblprivilege.findAll()
         .then((data) => {
-            console.info(data)
-            res.json(data)
+            return res.json(data)
         }).catch((err) => {
-            console.error(err)
+            return res.status(400).json(err)
         })
     },
     byid(req, res) {
         var param  = req.params
-        models.tblprivilege.find({
+        models.tblprivilege.findOne({
             where: {
                 id:{
-                    [Op.eq]:param['c']
+                    [Op.eq]:param['idprivilege']
                 }
             }
         }).then((result) => {
             console.info(result)
             if(!result) {
-                res.status(400).json({"message": "privilege not found"})
+                return res.status(400).json({"message": "privilege not found"})
             }
-            res.json(result)
+            return res.json(result)
+        }).catch((err) => {
+            return res.status(400).json(err)
         })
     },
-    save(req, res) {
-        var param = req.body
+    async save(req, res) {
+        const name = req.body['name']
         var createdAt = Date.now()
-        models.tblprivilege.findOrCreate({
+        const [result, isCreated] = await models.tblprivilege.findOrCreate({
             where: {
                 name: {
-                    [Op.eq]: param['name']
+                    [Op.eq]: name
                 }
             },
-            default: {
-                name : param['name'],
+            defaults: {
+                name : name,
                 createdAt: createdAt
             }
-        }).then((result) => {
-            console.log(result)
-        }).catch((err) => {
-            console.error(err)
+        }).catch((err) =>{
+            console.log(err)
+            return res.status(400).json(err)
         })
+        if(isCreated) {
+            return res.status(200).json({"message": "save success"})
+        }
+        return res.status(200).json({"message": "privilege already exiss"})
     },
     delete(req, res) {
         var id = req.params['idprivilege']
+        console.log(id)
         models.tblprivilege.destroy({
             where: {
                 id : {
@@ -57,9 +62,14 @@ const PrivilegeController = {
                 }
             }
         }).then((result) => {
-            console.info(result)
+            console.log(result)
+            if(!result) {
+                return res.status(400).json({"message": "delete failed privilege not found"})
+            }
+            return res.status(200).json({"message":"delete success"})
         }).catch((err) => {
             console.error(err)
+            return res.status(400).json(err)
         })
     }
 }

@@ -49,6 +49,7 @@ module.exports = {
       queryInterface,
       tableName: 'tbljns_product',
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "PRIMARY",

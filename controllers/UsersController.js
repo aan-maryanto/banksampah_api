@@ -7,7 +7,6 @@ const bcrypt = require('bcrypt')
 
 const UserController = {
     save(req, res) {
-        const {username, email, password, lastlogin, status, issuperadmin} = req.body
         models.tblusers.findOrCreate({
             where: {
                 [Op.or]:[

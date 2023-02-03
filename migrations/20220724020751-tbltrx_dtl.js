@@ -43,6 +43,7 @@ module.exports = {
       queryInterface,
       tableName: 'tbltrx_dtl',
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "fk_tbltrxdtl_rawid",

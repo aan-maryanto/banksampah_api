@@ -18,22 +18,13 @@ module.exports = {
       name: {
         type: Sequelize.STRING(50),
         allowNull: true,
-        unique: "name"
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: true
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: true
+        unique: "NAME"
       }
     }, {
       queryInterface,
       tableName: 'tblprivilege',
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "PRIMARY",
@@ -44,11 +35,11 @@ module.exports = {
           ]
         },
         {
-          name: "NAME",
+          name: "name",
           unique: true,
           using: "BTREE",
           fields: [
-            { name: "NAME" },
+            { name: "name" },
           ]
         },
       ]

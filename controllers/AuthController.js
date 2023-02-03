@@ -50,27 +50,14 @@ const AuthController = {
     }
 ,
     register(req, res) {
-        var username = req.body.username;
-        var email = req.body.email;
-        var password = req.body.password;
-        var status = "A";
-        var createdAt = Date.now();
-        var issuperadmin = false; 
-        models.tblusers.findOrCreate({
-            where: {
-                [Op.or]:[
-                    {username:username},
-                    {email:email}
-                ]
-            },
-            default: {
-                username: username,
-                email: email,
-                password: bcrypt.hashSync(password, 10),
-                createdAt: createdAt,
-                status: status,
-                issuperadmin: issuperadmin
-            }
+        const {username, email, password} = req.body;
+        models.tblusers.create({
+            username: username,
+            email: email,
+            password: bcrypt.hashSync(password, 10),
+            status: 'I',
+            is_verified : false,
+            is_superadmin: false
         }).then((result) => {
             console.log(result)
             if(!result) {
@@ -81,7 +68,7 @@ const AuthController = {
             })
             return res.status(201).json({"message":"success to register"})
         }).catch((error) => {
-            console.log(error)
+            return res.status(500).status(error)
         })
 
     }

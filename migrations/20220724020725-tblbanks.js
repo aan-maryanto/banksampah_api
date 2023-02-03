@@ -70,6 +70,7 @@ module.exports = {
       queryInterface,
       tableName: 'tblbanks',
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "PRIMARY",

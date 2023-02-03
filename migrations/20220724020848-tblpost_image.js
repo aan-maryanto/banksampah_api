@@ -35,6 +35,7 @@ module.exports = {
       queryInterface,
       tableName: 'tblpost_image',
       timestamps: false,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "fk_post_image",

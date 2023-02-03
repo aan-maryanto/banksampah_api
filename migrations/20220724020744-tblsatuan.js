@@ -53,6 +53,7 @@ module.exports = {
       queryInterface,
       tableName: 'tblsatuan',
       timestamps: true,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "PRIMARY",

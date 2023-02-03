@@ -63,6 +63,7 @@ module.exports = {
       queryInterface,
       tableName: 'tblbanks_acc',
       timestamps: false,
+      timestampsWithDefaults: true,
       indexes: [
         {
           name: "fk_banksusers",
