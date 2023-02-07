@@ -1,16 +1,15 @@
-# GET http://localhost:3000/
+### Get localhost:3000 
+GET http://localhost:3000/
 
-# POST http://localhost:3000/users/save HTTP/1.1
-# Content-Type: application/json
+### Register
+POST http://localhost:3000/register HTTP/1.1
+Content-Type: application/json
 
-# {
-#     "username": "finkaamel",
-#     "email": "admin_finkaamel@banksampah.com",
-#     "password": "P@ssw0rd",
-#     "lastlogin":null,
-#     "status":"A",
-#     "issuperadmin":false
-# }
+{
+    "username": "finkaamel",
+    "email": "admin_finkaamel@banksampah.com",
+    "password": "P@ssw0rd"
+}
 
 ### LOGIN
 POST http://localhost:3000/login HTTP/1.1
