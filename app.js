@@ -4,9 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var rateLimiter = require('express-rate-limit')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var privilegeRouter = require('./routes/privilege');
+var productRouter = require('./routes/product');
+
+var limiter = rateLimiter({
+  windowMs: 1 * 60 * 1000, // 15 minutes
+	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+})
 
 var app = express();
 
@@ -23,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/privilege', privilegeRouter);
+app.use('/product', productRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,5 +50,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use(limiter);
 
 module.exports = app;
