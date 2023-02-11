@@ -5,9 +5,6 @@ const initmail = require('../config/sendemail');
 const models = initModels(initdb);
 const fs = require('fs');
 const path = require('path');
-
-const nodemailer = require('nodemailer');
-const hbs = require('handlebars');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
@@ -34,12 +31,12 @@ const AuthController = {
                     return res.status(400).json({"message":"wrong password"})
                 }else{
                     const {password, lastlogin, issuperadmin, ...filterData} = result.dataValues
-                    var token = jwt.sign({
+                    let token = jwt.sign({
                         data: filterData
-                    }, process.env.SALT, {expiresIn: '1h', algorithm: 'HS256'})
-                    var refreshToken = jwt.sign({
+                    }, process.env.SALT, {expiresIn: '1h', algorithm: 'HS256'});
+                    let refreshToken = jwt.sign({
                         data: filterData
-                    }, process.env.SALT, { expiresIn: '10h', algorithm: 'HS256'})        
+                    }, process.env.SALT, {expiresIn: '10h', algorithm: 'HS256'});
                     return res.status(200).json({"token":token, "refresh_token": refreshToken});
                 }
             })  

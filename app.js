@@ -6,10 +6,10 @@ var logger = require('morgan');
 
 var rateLimiter = require('express-rate-limit')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var privilegeRouter = require('./routes/privilege');
-var productRouter = require('./routes/product');
+var indexRouter = require('./src/routes/index');
+var usersRouter = require('./src/routes/users');
+var privilegeRouter = require('./src/routes/privilege');
+var productRouter = require('./src/routes/product');
 
 var limiter = rateLimiter({
   windowMs: 1 * 60 * 1000, // 15 minutes
