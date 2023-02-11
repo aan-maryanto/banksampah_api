@@ -19,3 +19,29 @@ Content-Type: application/json
     "username": "superadmin",
     "password": "P@ssw0rd"
 }
+
+### FORGOT PASSWORD
+POST http://localhost:3000/forgotpassword HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "email"
+}
+
+### FORGOT USERNAME
+POST  http://localhost:3000/forgotusername HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "email"
+}
+
+### UPDATE PASSWORD BY LINK
+POST http://localhost:3000/updatepasswordbylink HTTP/1.1
+Content-Type: application/json
+
+{
+  "iduser": "",
+  "newpassword": ""
+}
+

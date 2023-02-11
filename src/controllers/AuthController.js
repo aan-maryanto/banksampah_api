@@ -74,8 +74,7 @@ const AuthController = {
     }
 ,
     forgotPassword(req, res){
-        // var email = req.body.email;
-        var email = req.params.email
+        var email = req.body.email
         models.tblusers.findOne({
             where: {
                 email: {
@@ -109,7 +108,7 @@ const AuthController = {
     }
 ,
     updatePasswordByLink(req, res){
-        var iduser = req.params.iduser
+        var iduser = req.body.iduser
         var newpassword = req.body.newpassword
 
         models.tblusers.update({password:newpassword},{
@@ -130,7 +129,7 @@ const AuthController = {
     }
 ,
     forgotUsername(req, res){
-        var email = req.params.email
+        var email = req.body.email
 
         models.tblusers.findOne({
             where: {

@@ -7,5 +7,4 @@ router.get('/all', checkToken, UsersController.all);
 router.get('/exceptsu', checkToken, UsersController.allexceptsu);
 router.get('/byprivilege/:id', checkToken, UsersController.allbyprivilege);
 router.get('/byid/:id', checkToken, UsersController.byid);
-router.post('/save', UsersController.save);
 module.exports = router;
