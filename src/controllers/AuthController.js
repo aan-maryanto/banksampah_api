@@ -6,8 +6,6 @@ const models = initModels(initdb);
 const fs = require('fs');
 const path = require('path');
 
-const nodemailer = require('nodemailer');
-const hbs = require('handlebars');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');

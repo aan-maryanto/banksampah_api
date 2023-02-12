@@ -18,26 +18,26 @@ const SatuanController = {
             res.status(500).json(err)
         })
     },
-    get(req, res) {
-        console.log("get")
-        var id = req.params['idsatuan']
-        model.tblsatuan.find({
-            where: {
-                id: {
-                    [Op.eq]: id
-                }
-            }
-        }).then((result) => {
-            console.info(result)
-            if(!result) {
-                res.status(400).json({"message":"status not found"})
-            }
-            res.json(result)
-        }).catch((err) => {
-            console.error(err)
-            res.status(500).json(err)
-        })
-    },
+    // get(req, res) {
+    //     console.log("get")
+    //     var id = req.params['idsatuan']
+    //     model.tblsatuan.find({
+    //         where: {
+    //             id: {
+    //                 [Op.eq]: id
+    //             }
+    //         }
+    //     }).then((result) => {
+    //         console.info(result)
+    //         if(!result) {
+    //             res.status(400).json({"message":"status not found"})
+    //         }
+    //         res.json(result)
+    //     }).catch((err) => {
+    //         console.error(err)
+    //         res.status(500).json(err)
+    //     })
+    // },
     save(req, res) {
         console.log("save")
         model.tblsatuan.findOrCreate({

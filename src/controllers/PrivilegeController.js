@@ -1,35 +1,53 @@
 const initModels = require('../models/init-models');
 const { Op } = require('sequelize');
 const initdb = require('../config/init-db');
+const {getPagination, getPagingData} = require("../utils/pagination");
+const {baseResponse} = require("../utils/response");
 const models = initModels(initdb);
 
 const PrivilegeController = {
     all(req, res) {
-        models.tblprivilege.findAll()
-        .then((data) => {
-            return res.json(data)
-        }).catch((err) => {
-            return res.status(400).json(err)
-        })
-    },
-    byid(req, res) {
-        var param  = req.params
-        models.tblprivilege.findOne({
-            where: {
-                id:{
-                    [Op.eq]:param['idprivilege']
+        const {page, size, name} = req.query
+        const {limit, offset} = getPagination(page, size)
+        models.tblprivilege.findAndCountAll({
+            limit,
+            offset,
+            where: {[Op.and]:{
+                name :{
+                    [Op.like]: name ?`%${name}%` : ''
                 }
-            }
-        }).then((result) => {
+            }}
+        })
+        .then((result) => {
             console.info(result)
-            if(!result) {
-                return res.status(400).json({"message": "privilege not found"})
-            }
-            return res.json(result)
+            return res.status(200).json({
+                "code":200,
+                "message":"sukses",
+                "data":getPagingData(result, page, limit)
+            })
+            // baseResponse(200, "sukses", getPagingData(result, page, limit));
         }).catch((err) => {
-            return res.status(400).json(err)
+            return baseResponse(400, err, {});
         })
     },
+    // byid(req, res) {
+    //     var param  = req.params
+    //     models.tblprivilege.findOne({
+    //         where: {
+    //             id:{
+    //                 [Op.eq]:param['idprivilege']
+    //             }
+    //         }
+    //     }).then((result) => {
+    //         console.info(result)
+    //         if(!result) {
+    //             return res.status(400).json({"message": "privilege not found"})
+    //         }
+    //         return res.json(result)
+    //     }).catch((err) => {
+    //         return res.status(400).json(err)
+    //     })
+    // },
     async save(req, res) {
         const name = req.body['name']
         var createdAt = Date.now()
