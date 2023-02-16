@@ -1,0 +1,14 @@
+components:
+  schemas:
+    Auth:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        id:
+          type: string
+          description: auto generated id of the user
+        username:
+          type: string
+          description: username user

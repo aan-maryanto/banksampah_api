@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61d7c46b-9c5d-4195-8b7e-3fa1d9bb3125" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/BanksController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/TransactionController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/banks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/satuan.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/transaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/pagination.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/response.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AuthController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/PrivilegeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/PrivilegeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/SatuanController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SatuanController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/privilege.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/privilege.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +49,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs.jest.jest_package&quot;: &quot;/Users/aanmaryanto/node-project/express/banksampah_api/node_modules/jest&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -169,6 +156,7 @@
       <workItem from="1676122391081" duration="2705000" />
       <workItem from="1676125373952" duration="2252000" />
       <workItem from="1676204263541" duration="5360000" />
+      <workItem from="1676538044835" duration="10204000" />
     </task>
     <servers />
   </component>
