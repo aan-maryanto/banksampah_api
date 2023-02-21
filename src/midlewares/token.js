@@ -17,8 +17,14 @@ const checkToken = (req, res, next) => {
             return res.send(err)
         }
         if(decoded['exp'] < (Date.now() / 1000)) {
-            next()
+            return res.send(
+                {
+                    "code":400,
+                    "message":"token expired"
+                }
+            )
         }
+        
         next()
     })
 }

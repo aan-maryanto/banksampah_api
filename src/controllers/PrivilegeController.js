@@ -30,24 +30,6 @@ const PrivilegeController = {
             return baseResponse(400, err, {});
         })
     },
-    // byid(req, res) {
-    //     var param  = req.params
-    //     models.tblprivilege.findOne({
-    //         where: {
-    //             id:{
-    //                 [Op.eq]:param['idprivilege']
-    //             }
-    //         }
-    //     }).then((result) => {
-    //         console.info(result)
-    //         if(!result) {
-    //             return res.status(400).json({"message": "privilege not found"})
-    //         }
-    //         return res.json(result)
-    //     }).catch((err) => {
-    //         return res.status(400).json(err)
-    //     })
-    // },
     async save(req, res) {
         const name = req.body['name']
         var createdAt = Date.now()

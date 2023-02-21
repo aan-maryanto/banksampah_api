@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "version": "1.0.0",
-    "title": "Banksampah API",
+    "version": "+h API",
+
     "license": {
       "name": "MIT"
     },
@@ -10,7 +10,8 @@
       "name": "Aan Maryanto",
       "url": "",
       "email": "maryanto.aan@gmail.com"
-    }
+    },
+    "title": "Banksampah api"
   },
   "servers": [
     {
