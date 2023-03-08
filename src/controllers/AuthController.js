@@ -9,6 +9,7 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
+const util = require("util");
 dotenv.config()
 
 const AuthController = {
@@ -47,27 +48,43 @@ const AuthController = {
         })
     }
 ,
-    register(req, res) {
+    async register(req, res) {
         const {username, email, password} = req.body;
-        models.tblusers.create({
-            username: username,
-            email: email,
-            password: bcrypt.hashSync(password, 10),
-            status: 'I',
-            is_verified : false,
-            is_superadmin: false
-        }).then((result) => {
-            console.log(result)
-            if(!result) {
-                return res.status(400).json({"message":"user already exist"})
+        const [result, isCreated] = await models.tblusers.findOrCreate({
+            where: {
+                [Op.or]: [
+                    {
+                        username: {
+                            [Op.eq] : username
+                        }
+                    },
+                    {
+                        email: {
+                            [Op.eq] : email
+                        }
+                    }
+                ]
+            },
+            defaults:{
+                username: username,
+                email: email,
+                password: bcrypt.hashSync(password, 10),
+                status: 'I',
+                is_verified : false,
+                is_superadmin: false
             }
-            models.tbluser_privilege.create({
-                
-            })
-            return res.status(201).json({"message":"success to register"})
         }).catch((error) => {
             return res.status(500).status(error)
         })
+
+        if(isCreated) {
+            await models.tbluser_privilege.create({
+                userid: result.id,
+                privilegeid: 2
+            })
+            return res.status(200).json({"message": "register succes"})
+        }
+        return res.status(200).json({"message": "users already exist"})
 
     }
 ,

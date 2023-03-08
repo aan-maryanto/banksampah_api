@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     userid: {
       type: DataTypes.BIGINT,
       allowNull: true,
+      primaryKey: true,
       references: {
         model: 'tblusers',
         key: 'id'

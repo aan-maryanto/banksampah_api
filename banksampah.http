@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
     "username": "finkaamel",
-    "email": "admin_finkaamel@banksampah.com",
+    "email": "finkaamel@banksampah.com",
     "password": "P@ssw0rd"
 }
 
@@ -44,4 +44,12 @@ Content-Type: application/json
   "iduser": "",
   "newpassword": ""
 }
+
+### GET ALL USER
+GET http://localhost:3000/users/all HTTP/1.1
+Content-Type: application/json
+
+### GET ALL PRIVILEDGE
+GET http://localhost:3000/privilege/all HTTP/1.1
+Content-Type: application/json
 

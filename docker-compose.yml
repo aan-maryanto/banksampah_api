@@ -1,4 +1,4 @@
-version: "3.1"
+version: "3"
 services:
   db:
     image: mysql:8.0.32-debian
@@ -10,13 +10,13 @@ services:
       - MYSQL_PASSWORD=$DOCKER_DATABASE_PASSWORD
       - MYSQL_DATABASE=$DOCKER_DATABASE_DB
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db:/var/lib/mysql
   app:
     depends_on:
       - db
-    build: /home/aan/work-dir
+    image: nodejs_16.15.1_alpine
     env_file:
       - ./.env
     ports:
@@ -32,8 +32,6 @@ services:
       - GMAIL_SERVICE_SECURE=$GMAIL_SERVICE_SECURE
       - GMAIL_SERVICE_TLS=$GMAIL_SERVICE_TLS
       - GMAIL_SERVICE_PORT=$GMAIL_SERVICE_PORT
-    command: >
-      bash -c "npx sequelize-cli db:migrate"
     stdin_open: true
     tty: true
 volumes:

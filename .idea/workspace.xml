@@ -7,10 +7,14 @@
     <list default="true" id="61d7c46b-9c5d-4195-8b7e-3fa1d9bb3125" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banksampah.http" beforeDir="false" afterPath="$PROJECT_DIR$/banksampah.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/PrivilegeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/PrivilegeController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/SatuanController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SatuanController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/midlewares/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/midlewares/token.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/UsersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/UsersController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/pagination.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,18 +69,10 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Banksampah Api">
-    <configuration name="Check method 'login()' .should 200" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/test/controllers/Auth.spec.js" />
-      <test-names>
-        <test-name value="Check method 'login()' " />
-        <test-name value="should 200" />
-      </test-names>
+    <configuration name="banksampah | GET ALL PRIVILEDGE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/banksampah.http" index="8" requestIdentifier="GET ALL PRIVILEDGE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="banksampah | GET ALL USER" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/banksampah.http" index="7" requestIdentifier="GET ALL USER" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="Check method 'login()' " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
@@ -148,18 +144,20 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="HTTP Request.banksampah | GET ALL PRIVILEDGE" />
+      <item itemvalue="HTTP Request.banksampah | GET ALL USER" />
       <item itemvalue="Jest.Check method 'login()' " />
-      <item itemvalue="Jest.Check method 'login()' .should 200" />
       <item itemvalue="Jest.test" />
       <item itemvalue="Jest.test 'Sum'" />
       <item itemvalue="Node.js.Banksampah Api" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.banksampah | GET ALL PRIVILEDGE" />
+        <item itemvalue="HTTP Request.banksampah | GET ALL USER" />
         <item itemvalue="Jest.test 'Sum'" />
         <item itemvalue="Jest.test" />
         <item itemvalue="Jest.Check method 'login()' " />
-        <item itemvalue="Jest.Check method 'login()' .should 200" />
       </list>
     </recent_temporary>
   </component>
@@ -178,6 +176,9 @@
       <workItem from="1676538044835" duration="10705000" />
       <workItem from="1676939938878" duration="6622000" />
       <workItem from="1676984044484" duration="4791000" />
+      <workItem from="1676204263541" duration="5504000" />
+      <workItem from="1676334355227" duration="3106000" />
+      <workItem from="1676512169636" duration="233000" />
     </task>
     <servers />
   </component>

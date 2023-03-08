@@ -3,15 +3,35 @@ const { Op } = require('sequelize');
 const initdb = require('../config/init-db');
 const models = initModels(initdb)
 const bcrypt = require('bcrypt')
+const {getPagination, getPagingData} = require("../utils/pagination");
 
 
 const UserController = {
     all(req, res) {
-        models.tblusers.findAll({
-            attributes:['username', 'email', 'lastlogin', 'status', 'issuperadmin']
+        const {page, size, username, email} = req.query
+        const {limit, offset} = getPagination(page, size)
+        models.tblusers.findAndCountAll({
+            limit,
+            offset,
+            attributes:['username', 'email', 'lastlogin', 'status'],
+            where: {
+                [Op.and]:{
+                    username :{
+                        [Op.like]: username ?`%${username}%` : '%'
+                    },
+                    email: {
+                        [Op.like]: email ? `%${email}%` : '%'
+                    }
+                }
+            }
         })
-        .then((data) => {
-            return res.json(data);
+        .then((result) => {
+            console.info(result)
+            return res.status(200).json({
+                "code":200,
+                "message":"sukses",
+                "data":getPagingData(result, page, limit)
+            })
         } )
         .catch((error) => {
             console.error(error)

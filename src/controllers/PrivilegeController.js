@@ -9,17 +9,17 @@ const PrivilegeController = {
     all(req, res) {
         const {page, size, name} = req.query
         const {limit, offset} = getPagination(page, size)
+        console.info(limit)
         models.tblprivilege.findAndCountAll({
             limit,
             offset,
             where: {[Op.and]:{
                 name :{
-                    [Op.like]: name ?`%${name}%` : ''
+                    [Op.like]: name ?`%${name}%` : '%'
                 }
             }}
         })
         .then((result) => {
-            console.info(result)
             return res.status(200).json({
                 "code":200,
                 "message":"sukses",
