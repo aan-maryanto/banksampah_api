@@ -50,7 +50,7 @@ const AuthController = {
 ,
     async register(req, res) {
         const {username, email, password} = req.body;
-        const [result, isCreated] = await models.tblusers.findOrCreate({
+        const result = await models.tblusers.findOrCreate({
             where: {
                 [Op.or]: [
                     {
@@ -76,6 +76,8 @@ const AuthController = {
         }).catch((error) => {
             return res.status(500).status(error)
         })
+
+        console.log("result : "+result)
 
         if(isCreated) {
             await models.tbluser_privilege.create({

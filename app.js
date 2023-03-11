@@ -7,16 +7,16 @@ const logger = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger.json');
 
-const indexRouter = require('./src/routes/index');
-const usersRouter = require('./src/routes/users');
-const privilegeRouter = require('./src/routes/privilege');
-const banksRouter = require('./src/routes/banks')
-const satuanRouter = require('./src/routes/satuan')
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const privilegeRouter = require('./routes/privilege');
+const banksRouter = require('./routes/banks')
+const satuanRouter = require('./routes/satuan')
 
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, './src/views'));
+app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
