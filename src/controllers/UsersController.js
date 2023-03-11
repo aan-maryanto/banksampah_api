@@ -40,9 +40,9 @@ const UserController = {
 ,
     allexceptsu(req, res) {
         models.tblusers.findAll({
-            attributes:['username', 'email', 'lastlogin', 'status', 'issuperadmin'],
+            attributes:['username', 'email', 'lastlogin', 'status',],
             where: {
-                issuperadmin: {
+                is_superadmin: {
                     [Op.ne]: 1
                 }
             }
@@ -58,7 +58,7 @@ const UserController = {
     allbyprivilege(req, res) {
         const id = req.params.id;
         models.tblusers.findAll({
-            attributes:['username', 'email', 'lastlogin', 'status', 'issuperadmin'],
+            attributes:['username', 'email', 'lastlogin', 'status'],
             raw: true,
             include: {
                 model: models.tbluser_privilege,
@@ -82,7 +82,7 @@ const UserController = {
     byid(req, res) {
         const id = req.params.id;
         models.tblusers.findOne({
-            attributes:['username', 'email', 'lastlogin', 'status', 'issuperadmin'],
+            attributes:['username', 'email', 'lastlogin', 'status'],
             raw: true,
             where: {
                 id: {

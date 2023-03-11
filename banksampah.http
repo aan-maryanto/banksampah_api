@@ -49,7 +49,36 @@ Content-Type: application/json
 GET http://localhost:3000/users/all HTTP/1.1
 Content-Type: application/json
 
+### GET ALL USER EXCEPT SU
+GET http://localhost:3000/users/exceptsu HTTP/1.1
+Content-Type: application/json
+
+### GET USER BY PRIVILEGE
+GET http://localhost:3000/users/byprivilege/1 HTTP/1.1
+Content-Type: application/json
+
+### GET USER BY ID
+GET http://localhost:3000/users/byid/id HTTP/1.1
+Content-Type: application/json
+
+### POST PROFILE USER (belum dicoba)
+POST http://localhost:3000/users/update-profile/id HTTP/1.1
+Content-Type: application/json
+
 ### GET ALL PRIVILEDGE
 GET http://localhost:3000/privilege/all HTTP/1.1
 Content-Type: application/json
+
+### POST PRIVILEGE
+POST http://localhost:3000/privilege/save HTTP/1.1
+Content-Type: application/json
+
+{
+  "name":""
+}
+
+DELETE http:///localhost:3000/privilege/delete/idprivilege HTTP/1.1
+Content-Type: application/json
+
+### 
 
