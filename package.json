@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node ./src/bin/www",
     "dev": "nodemon ./src/bin/www",
-    "tes": "jest",
     "test": "jest"
   },
   "dependencies": {

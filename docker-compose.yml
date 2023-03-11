@@ -19,8 +19,6 @@ services:
     image: nodejs_16.15.1_alpine
     env_file:
       - ./.env
-    ports:
-      - "8000:3000"
     environment:
       - HOST=db
       - USERNAME=$USERNAME
@@ -34,5 +32,7 @@ services:
       - GMAIL_SERVICE_PORT=$GMAIL_SERVICE_PORT
     stdin_open: true
     tty: true
+    ports:
+      - "8000:3000"
 volumes:
   db:

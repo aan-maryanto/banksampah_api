@@ -9,7 +9,7 @@ dotenv.config()
 
 const ProfileController = {
     getStatusProfile(req, res) {
-
+        
 
     },
     updateProfile(req, res) {
