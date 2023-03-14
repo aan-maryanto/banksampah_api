@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tbljns_product', {
     id: {
@@ -9,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING(50),
+      unique: true,
       allowNull: true
     },
     createdBy: {
@@ -38,6 +38,14 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "name",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "name" }
         ]
       },
       {

@@ -5,16 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61d7c46b-9c5d-4195-8b7e-3fa1d9bb3125" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banksampah.http" beforeDir="false" afterPath="$PROJECT_DIR$/banksampah.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/PrivilegeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/PrivilegeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/SatuanController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SatuanController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/midlewares/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/midlewares/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/UsersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/UsersController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/PrivilegeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PrivilegeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724015744-tbl_users.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724015744-tbl_users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724015745-tblprivilege.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724015745-tblprivilege.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020724-tbluser_privilege.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020724-tbluser_privilege.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020725-tblbanks.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020725-tblbanks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020744-tblsatuan.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020744-tblsatuan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020745-tblgoods_raw.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020745-tblgoods_raw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020746-tbltrx_hdr.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020746-tbltrx_hdr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020815-tblprofile.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020815-tblprofile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020822-tbljns_product.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020822-tbljns_product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020823-tblproduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020823-tblproduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020942-tblbanks_users.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020942-tblbanks_users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20220724020950-tblbanks_role.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20220724020950-tblbanks_role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblbanks.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblbanks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblbanks_acc.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblbanks_acc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblbanks_role.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblbanks_role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblbanks_users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblbanks_users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblgoods_raw.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblgoods_raw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tbljns_product.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tbljns_product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tbllogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tbllogs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblpost_image.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblpost_image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblposts.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblposts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblprivilege.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblprivilege.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblproduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblproduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblprofile.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblprofile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblsatuan.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblsatuan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tbltmpusers.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tbltmpusers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tbltrx_dtl.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tbltrx_dtl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tbltrx_hdr.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tbltrx_hdr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tbluser_privilege.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tbluser_privilege.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tblusers.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tblusers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/privilege.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/privilege.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,64 +93,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Banksampah Api">
-    <configuration name="banksampah | GET ALL PRIVILEDGE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/banksampah.http" index="8" requestIdentifier="GET ALL PRIVILEDGE" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="banksampah | GET ALL USER" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/banksampah.http" index="7" requestIdentifier="GET ALL USER" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="Check method 'login()' " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/test/controllers/Auth.spec.js" />
-      <test-names>
-        <test-name value="Check method 'login()' " />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="test 'Sum'" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/test/index.test.js" />
-      <test-names>
-        <test-name value="test 'Sum'" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/test/index.test.js" />
-      <test-names>
-        <test-name value="test" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Banksampah Api" type="NodeJSConfigurationType" working-dir="$PROJECT_DIR$">
-      <method v="2">
-        <option name="NpmBeforeRunTask" enabled="true">
-          <package-json value="$PROJECT_DIR$/package.json" />
-          <command value="run" />
-          <scripts>
-            <script value="dev" />
-          </scripts>
-          <node-interpreter value="project" />
-          <envs />
-        </option>
-      </method>
-    </configuration>
     <configuration default="true" type="SwaggerCodegen">
       <option name="activeConfigurationType" value="FILE" />
       <option name="configurationPath" value="" />
@@ -143,21 +109,59 @@
       <option name="specificationPath" value="$PROJECT_DIR$/swagger.json" />
       <method v="2" />
     </configuration>
+    <configuration name="banksampah | DELETE PRIVILEGE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/banksampah.http" index="14" requestIdentifier="DELETE PRIVILEGE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="banksampah | GET ALL PRIVILEDGE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/banksampah.http" index="8" requestIdentifier="GET ALL PRIVILEDGE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="banksampah | GET ALL USER" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/banksampah.http" index="7" requestIdentifier="GET ALL USER" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="banksampah | Get localhost:3000" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/banksampah.http" requestIdentifier="Get localhost:3000" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="test 'Sum'" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/test/index.test.js" />
+      <test-names>
+        <test-name value="test 'Sum'" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Banksampah Api" type="NodeJSConfigurationType" working-dir="$PROJECT_DIR$">
+      <method v="2">
+        <option name="NpmBeforeRunTask" enabled="true">
+          <package-json value="$PROJECT_DIR$/package.json" />
+          <command value="run" />
+          <scripts>
+            <script value="dev" />
+          </scripts>
+          <node-interpreter value="project" />
+          <envs />
+        </option>
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="HTTP Request.banksampah | DELETE PRIVILEGE" />
+      <item itemvalue="HTTP Request.banksampah | Get localhost:3000" />
       <item itemvalue="HTTP Request.banksampah | GET ALL PRIVILEDGE" />
       <item itemvalue="HTTP Request.banksampah | GET ALL USER" />
-      <item itemvalue="Jest.Check method 'login()' " />
-      <item itemvalue="Jest.test" />
       <item itemvalue="Jest.test 'Sum'" />
       <item itemvalue="Node.js.Banksampah Api" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.banksampah | GET ALL PRIVILEDGE" />
+        <item itemvalue="HTTP Request.banksampah | Get localhost:3000" />
+        <item itemvalue="HTTP Request.banksampah | DELETE PRIVILEGE" />
         <item itemvalue="HTTP Request.banksampah | GET ALL USER" />
         <item itemvalue="Jest.test 'Sum'" />
-        <item itemvalue="Jest.test" />
-        <item itemvalue="Jest.Check method 'login()' " />
       </list>
     </recent_temporary>
   </component>
@@ -179,6 +183,7 @@
       <workItem from="1676204263541" duration="5504000" />
       <workItem from="1676334355227" duration="3106000" />
       <workItem from="1676512169636" duration="233000" />
+      <workItem from="1678765627797" duration="6204000" />
     </task>
     <servers />
   </component>

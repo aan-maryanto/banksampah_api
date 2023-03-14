@@ -17,6 +17,7 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING(100),
+        unique: true,
         allowNull: true
       },
       satuan: {
@@ -28,7 +29,7 @@ module.exports = {
         }
       },
       price: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.FLOAT(18, 2),
         allowNull: true
       },
       createdAt: {
@@ -69,6 +70,14 @@ module.exports = {
           using: "BTREE",
           fields: [
             { name: "id" },
+          ]
+        },
+        {
+          name: "name",
+          unique: true,
+          using: "BTREE",
+          fields: [
+            { name: "name" }
           ]
         },
         {

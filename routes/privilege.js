@@ -8,7 +8,7 @@ dotenv.config()
 
 router.get('/all', PrivilegeController.all)
 // router.get('/byid/:idprivilege', checkToken, PrivilegeController.byid)
-router.post('/add', checkToken, PrivilegeController.save)
-router.delete('/delete/:idprivilege', checkToken, PrivilegeController.delete)
+router.post('/add', PrivilegeController.save)
+router.delete('/delete/:idprivilege', PrivilegeController.delete)
 
 module.exports = router

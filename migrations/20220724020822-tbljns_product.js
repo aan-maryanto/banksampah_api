@@ -17,6 +17,7 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING(50),
+        unique: true,
         allowNull: true
       },
       createdAt: {
@@ -57,6 +58,14 @@ module.exports = {
           using: "BTREE",
           fields: [
             { name: "id" },
+          ]
+        },
+        {
+          name: "name",
+          unique: true,
+          using: "BTREE",
+          fields: [
+            { name: "name" }
           ]
         },
         {

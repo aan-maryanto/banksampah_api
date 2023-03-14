@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tblbanks_users', {
     id: {
@@ -14,12 +13,12 @@ module.exports = function(sequelize, DataTypes) {
     username: {
       type: DataTypes.STRING(100),
       allowNull: true,
-      unique: "username"
+      unique: true
     },
     email: {
       type: DataTypes.STRING(100),
       allowNull: true,
-      unique: "email"
+      unique: true
     },
     password: {
       type: DataTypes.STRING(200),

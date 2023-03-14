@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tblprofile', {
     id: {
@@ -34,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
     nik: {
       type: DataTypes.STRING(16),
       allowNull: true,
-      unique: "nik"
+      unique: true
     },
     avatar: {
       type: DataTypes.BLOB,

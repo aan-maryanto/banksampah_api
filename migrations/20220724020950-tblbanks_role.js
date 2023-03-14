@@ -17,7 +17,8 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING(100),
-        allowNull: true
+        allowNull: true,
+        unique: true
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -57,6 +58,14 @@ module.exports = {
           using: "BTREE",
           fields: [
             { name: "id" },
+          ]
+        },
+        {
+          name: "name",
+          unique: true,
+          using: "BTREE",
+          fields: [
+            { name: "name" },
           ]
         },
         {

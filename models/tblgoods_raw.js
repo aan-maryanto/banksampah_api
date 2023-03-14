@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tblgoods_raw', {
     id: {
@@ -9,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING(100),
+      unique: true,
       allowNull: true
     },
     satuan: {
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     price: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.FLOAT(18, 2),
       allowNull: true
     },
     createdBy: {

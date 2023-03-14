@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tblbanks_role', {
     id: {
@@ -9,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     createdBy: {
       type: DataTypes.BIGINT,
@@ -38,6 +38,14 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "name",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "name" }
         ]
       },
       {

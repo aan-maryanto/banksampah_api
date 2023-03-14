@@ -15,6 +15,11 @@ module.exports = {
         allowNull: false,
         primaryKey: true
       },
+      uuid: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+      },
       banksid: {
         type: Sequelize.BIGINT,
         allowNull: true,
@@ -78,6 +83,14 @@ module.exports = {
           using: "BTREE",
           fields: [
             { name: "id" },
+          ]
+        },
+        {
+          name: "UUID",
+          unique: true,
+          using: "BTREE",
+          fields: [
+            { name: "uuid" }
           ]
         },
         {

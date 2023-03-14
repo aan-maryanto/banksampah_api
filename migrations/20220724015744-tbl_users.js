@@ -18,12 +18,12 @@ module.exports = {
     username: {
       type: Sequelize.STRING(100),
       allowNull: false,
-      unique: "username"
+      unique: true,
     },
     email: {
       type: Sequelize.STRING(100),
       allowNull: false,
-      unique: "email"
+      unique: true
     },
     password: {
       type: Sequelize.STRING(200),
@@ -48,12 +48,12 @@ module.exports = {
     },
     createdAt: {
       type: Sequelize.DATE,
-      defaultValue: Sequelize.fn('NOW'),
+      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       allowNull: true
     },
     updatedAt: {
       type: Sequelize.DATE,
-      defaultValue: Sequelize.fn('NOW'),
+      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       allowNull: true
     }
     },{
@@ -72,7 +72,7 @@ module.exports = {
           ]
         },
         {
-          name: "username",
+          name: "USERNAME",
           unique: true,
           using: "BTREE",
           fields: [
@@ -80,7 +80,7 @@ module.exports = {
           ]
         },
         {
-          name: "email",
+          name: "EMAIL",
           unique: true,
           using: "BTREE",
           fields: [

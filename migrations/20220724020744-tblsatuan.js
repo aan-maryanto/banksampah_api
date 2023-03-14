@@ -15,8 +15,9 @@ module.exports = {
         allowNull: false,
         primaryKey: true
       },
-      kdsatuan: {
+      kd_satuan: {
         type: Sequelize.STRING(10),
+        unique: true,
         allowNull: true
       },
       uraian: {
@@ -57,6 +58,14 @@ module.exports = {
       indexes: [
         {
           name: "PRIMARY",
+          unique: true,
+          using: "BTREE",
+          fields: [
+            { name: "id" },
+          ]
+        },
+        {
+          name: "kd_satuan",
           unique: true,
           using: "BTREE",
           fields: [

@@ -28,7 +28,7 @@ const PrivilegeController = {
             // baseResponse(200, "sukses", getPagingData(result, page, limit));
         }).catch((err) => {
             console.error(err)
-            return baseResponse(400, err, {});
+            return baseResponse(400, "bad error", {});
         })
     },
     async save(req, res) {

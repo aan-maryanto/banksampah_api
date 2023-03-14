@@ -9,6 +9,12 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     await queryInterface.createTable('tbluser_privilege', {
+      id: {
+        autoIncrement: true,
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        primaryKey: true
+      },
       userid: {
         type: Sequelize.BIGINT,
         allowNull: true,
@@ -31,6 +37,14 @@ module.exports = {
       timestamps: true,
       timestampsWithDefaults: true,
       indexes: [
+        {
+          name: "PRIMARY",
+          unique: true,
+          using: "BTREE",
+          fields: [
+            { name: "id" },
+          ]
+        },
         {
           name: "fk_userid_privilege",
           using: "BTREE",

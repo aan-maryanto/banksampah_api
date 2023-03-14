@@ -25,6 +25,7 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING(100),
+        unique: true,
         allowNull: true
       },
       price: {
@@ -73,6 +74,14 @@ module.exports = {
           using: "BTREE",
           fields: [
             { name: "id" },
+          ]
+        },
+        {
+          name: "name",
+          unique: true,
+          using: "BTREE",
+          fields: [
+            { name: "name" }
           ]
         },
         {

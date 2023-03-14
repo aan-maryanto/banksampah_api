@@ -15,9 +15,15 @@ module.exports = {
         allowNull: false,
         primaryKey: true
       },
+      uuid: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        unique: true,
+        allowNull: false,
+      },
       name: {
         type: Sequelize.STRING(100),
-        allowNull: true
+        allowNull: false
       },
       address: {
         type: Sequelize.TEXT,
@@ -30,7 +36,7 @@ module.exports = {
       notelp: {
         type: Sequelize.STRING(20),
         allowNull: true,
-        unique: "notelp"
+        unique: true
       },
       status: {
         type: Sequelize.TINYINT,
@@ -81,11 +87,11 @@ module.exports = {
           ]
         },
         {
-          name: "notelp",
+          name: "uuid",
           unique: true,
           using: "BTREE",
           fields: [
-            { name: "notelp" },
+            { name: "uuid" },
           ]
         },
         {

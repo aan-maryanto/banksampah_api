@@ -1,10 +1,14 @@
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tbluser_privilege', {
+    id: {
+      autoIncrement: true,
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      primaryKey: true
+    },
     userid: {
       type: DataTypes.BIGINT,
       allowNull: true,
-      primaryKey: true,
       references: {
         model: 'tblusers',
         key: 'id'
@@ -23,6 +27,14 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'tbluser_privilege',
     timestamps: false,
     indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id" },
+        ]
+      },
       {
         name: "fk_userid_privilege",
         using: "BTREE",

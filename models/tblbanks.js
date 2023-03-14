@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tblbanks', {
     id: {
@@ -6,6 +5,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BIGINT,
       allowNull: false,
       primaryKey: true
+    },
+    uuid: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      unique: true,
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING(100),
@@ -62,11 +67,11 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "notelp",
+        name: "uuid",
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "notelp" },
+          { name: "uuid" },
         ]
       },
       {

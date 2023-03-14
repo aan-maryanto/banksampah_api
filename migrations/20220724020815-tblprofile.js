@@ -42,7 +42,7 @@ module.exports = {
       nik: {
         type: Sequelize.STRING(16),
         allowNull: true,
-        unique: "nik"
+        unique: true
       },
       avatar: {
         type: Sequelize.BLOB,

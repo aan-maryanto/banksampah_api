@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tblsatuan', {
     id: {
@@ -7,9 +6,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
-    kdsatuan: {
+    kd_satuan: {
       type: DataTypes.STRING(10),
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     uraian: {
       type: DataTypes.STRING(100),
@@ -38,6 +38,14 @@ module.exports = function(sequelize, DataTypes) {
     indexes: [
       {
         name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id" },
+        ]
+      },
+      {
+        name: "kd_satuan",
         unique: true,
         using: "BTREE",
         fields: [
